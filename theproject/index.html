@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Hello React</title>
+        <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+        <script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script>
+        <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+        <script src="http://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+        <script></script>
+    </head>
+    <body>
+        <div id="example"></div>
+    </body>
+    <script type="text/babel">
+        // function tick() {
+        //     const element = (
+        //         <div>
+        //             <h1>Hello,world!</h1>
+        //             <h2>现在是{new Date().toLocaleTimeString()}.</h2>    
+        //         </div>
+        //     );
+        //     ReactDOM.render(
+        //         element,
+        //         document.getElementById('example')
+        //     )
+        // }
+        // setInterval(tick,1000);
+        
+
+        // class Clock extends React.Component{
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <h1>Hello,React!</h1>
+        //                 <h2>现在是{this.props.date.toLocaleTimeString()}.</h2>
+        //             </div>
+        //         );
+        //     }
+        // }
+        // function tick(){
+        //     ReactDOM.render(
+        //         <Clock date={new Date()} />,
+        //         document.getElementById('example')
+        //     )
+        // }
+        // setInterval(tick,1000);
+
+
+        // function Clock(props){
+        //     return(
+        //         <div>
+        //             <h1>Hello,React!</h1>
+        //             <h2>现在是{props.date.toLocaleTimeString()}.</h2>
+        //         </div>
+        //     );
+        // }
+        // function tick(){
+        //     ReactDOM.render(
+        //         <Clock date={new Date()} />,
+        //         document.getElementById('example')
+        //     );
+        // }
+        // setInterval(tick,1000);
+
+        
+        // ReactDOM.render(
+        //     <div>
+        //         <h1>study</h1>
+        //         <h2>Hello React{1+1}</h2>
+        //         {/*这是要给很不错的JavaScript库*/}
+        //         <p data-myattribute = "somevalue">这是一个很不错的JavaScript库！</p>
+        //     </div>,
+        //     document.getElementById('example')
+        // )
+        
+
+        // 自定义组件
+        // function HelloMessage(props){
+        //     return <h1>Hello {props.name}!</h1>;
+        // }
+        // const element = <HelloMessage name="React"/>;
+        // ReactDOM.render(
+        //     element,
+        //     document.getElementById('example')
+        // )
+        
+
+        // 复合组件
+        // function Name(props){
+        //     return <h3>网站名称：{props.name}</h3>
+        // }
+        // function Url(props){
+        //     return <h3>网站地址：{props.url}</h3>
+        // }
+        // function Nickname(props){
+        //     return <h3>网站小说：{props.nickname}</h3>
+        // }
+        // function App(){
+        //     return(
+        //         <div>
+        //             <Name name="盯座" />
+        //             <Url url="http://mip.kebide.com"/>
+        //             <Nickname nickname="dingzuo"/>
+        //         </div>
+        //     )
+        // }
+        // ReactDOM.render(
+        //     <App />,
+        //     document.getElementById('example')
+        // )
+
+
+        // React State(状态)
+        // class Clock extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {date: new Date()};
+        //     }
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <h1>Hello,world!</h1>
+        //                 <h2>现在是{this.state.date.toLocaleTimeString()}.</h2>
+        //             </div>
+        //         );
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <Clock />,
+        //     document.getElementById("example")
+        // )
+
+
+        // 将生命周期方法添加到类中
+        // class Clock extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {date: new Date()};
+        //     }
+        //     componentDidMount(){
+        //         this.timerID = setInterval(
+        //             () => this.tick(),1000
+        //         );
+        //     }
+        //     componentWillUnmount(){
+        //         clearInterval(this.timerID);
+        //     }
+        //     tick(){
+        //         this.setState({
+        //             date: new Date()
+        //         });
+        //     }
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <h1>Hello,world!</h1>
+        //                 <h2>现在是{this.state.date.toLocaleTimeString()}.</h2>
+        //             </div>
+        //         )
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <Clock />,
+        //     document.getElementById('example')
+        // );
+
+
+        // 数据自顶向下流动
+        // function FormattedDate(props){
+        //     return <h2>现在是{props.date.toLocaleTimeString()}.</h2>
+        // }
+        // class Clock extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {date: new Date()};
+        //     }
+        //     componentDidMount(){
+        //         this.timerID = setInterval(
+        //             () => this.tick(),1000
+        //         )
+        //     }
+        //     componentWillUnmount(){
+        //         clearInterval(this.timerID);
+        //     }
+        //     tick(){
+        //         this.setState({
+        //             date: new Date()
+        //         });
+        //     }
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <h1>Hello,world!</h1>
+        //                 <FormattedDate date={this.state.date} />
+        //             </div>
+        //         )
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <Clock />,
+        //     document.getElementById('example')
+        // )
+
+
+        // React Props
+        // function HelloMessage(props){
+        //     return <h1>Hello {props.name}</h1>
+        // }
+        // const element = <HelloMessage name="Runoob"/>
+        // ReactDOM.render(
+        //     element,
+        //     document.getElementById('example')
+        // )
+
+
+        // 默认Props
+        // class HelloMessage extends React.Component{
+        //     render(){
+        //         return(
+        //             <h1>Hello,{this.props.name}</h1>
+        //         );
+        //     }
+        // };
+        // HelloMessage.defaultProps = {
+        //     name: 'Runoob'
+        // };
+        // const element = <HelloMessage/>;
+        // ReactDOM.render(
+        //     element,
+        //     document.getElementById('example')
+        // );
+
+
+        // State和Props
+        // class WebSite extends React.Component{
+        //     constructor(){
+        //         super();
+        //         this.state = {
+        //             name:"盯座",
+        //             site:"http://mip.kebide.com"
+        //         }
+        //     }
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <Name name={this.state.name} />
+        //                 <Link site={this.state.site} />
+        //             </div>
+        //         );
+        //     }
+        // }
+        // class Name extends React.Component{
+        //     render(){
+        //         return(
+        //             <h1>{this.props.name}</h1>
+        //         );
+        //     }
+        // }
+        // class Link extends React.Component{
+        //     render(){
+        //         return(
+        //             <a href={this.props.site}>
+        //                 {this.props.site}
+        //             </a>
+        //         );
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <WebSite />,
+        //     document.getElementById('example')
+        // )
+
+
+        // Props验证
+        // Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用，React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有效。当向 props 传入无效数据时，JavaScript 控制台会抛出警告。以下实例创建一个 Mytitle 组件，属性 title 是必须的且是字符串，非字符串类型会自动转换为字符串 ：
+        // var title = "React";
+        // class MyTitle extends React.Component{
+        //     render(){
+        //         return(
+        //             <h1>Hello,{this.props.title}</h1>
+        //         );
+        //     }
+        // }
+        // MyTitle.propTypes = {
+        //     title: PropTypes.string
+        // };
+        // ReactDOM.render(
+        //     <MyTitle title={title} />,
+        //     document.getElementById('example')
+        // )
+
+        // var title = "React";
+        // var MyTitle = React.createClass({
+        //     propTypes:{
+        //         title: React.PropTypes.string.isRequired,
+        //     },
+        //     render:function(){
+        //         return <h1>{this.props.title}</h1>;
+        //     }
+        // });
+        // ReactDOM.render(
+        //     <MyTitle title={title} />,
+        //     document.getElementById('example')
+        // );
+
+
+        // React事件处理
+        // class Toggle extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {isToggleOn: true};
+        //         this.handleClick = this.handleClick.bind(this);
+        //     }
+        //     handleClick(){
+        //         this.setState(prevState => ({
+        //             isToggleOn: !prevState.isToggleOn
+        //         }));
+        //     }
+        //     render(){
+        //         return(
+        //             <button onClick={this.handleClick}>
+        //                 {this.state.isToggleOn ? 'ON' : 'OFF'}
+        //             </button>
+        //         );
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <Toggle />,
+        //     document.getElementById('example')
+        // )
+
+
+        // React条件渲染
+        // function UserGreeting(props){
+        //     return <h1>欢迎回来！</h1>
+        // }
+        // function GuestGreeting(props){
+        //     return <h1>请先注册。</h1>
+        // }
+        // function Greeting(props){
+        //     const isLoggedIn = props.isLoggedIn;
+        //     if(isLoggedIn){
+        //         return <UserGreeting />;
+        //     }
+        //     return <GuestGreeting />;
+        // }
+        // ReactDOM.render(
+        //     <Greeting isLoggedIn={false} />,
+        //     document.getElementById('example')
+        // )
+
+
+        // 与运算符&&
+        // function Mailbox(props){
+        //     const unreadMessages = props.unreadMessages;
+        //     return(
+        //         <div>
+        //             <h1>Hello!</h1>
+        //             {unreadMessages.length > 0 && 
+        //                 <h2>
+        //                     您有{unreadMessages.length}条未读信息。
+        //                 </h2>
+        //             }
+        //         </div>
+        //     )
+        // }
+        // const message = ['React','Re:React','Re:Re:React'];
+        // ReactDOM.render(
+        //     <Mailbox unreadMessages={message} />,
+        //     document.getElementById('example')
+        // )
+
+
+        // 阻止组件渲染
+        // function WarningBanner(props){
+        //     if(!props.warn){
+        //         return null;
+        //     }
+        //     return (
+        //         <div className="warning">
+        //             警告!
+        //         </div>
+        //     );
+        // }
+        // class Page extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {showWarning:true}
+        //         this.handleToggleClick = this.handleToggleClick.bind(this);
+        //     }
+        //     handleToggleClick(){
+        //         this.setState(prevState => ({
+        //             showWarning: !prevState.showWarning
+        //         }));
+        //     }
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <WarningBanner warn={this.state.showWarning} />
+        //                 <button onClick={this.handleToggleClick}>
+        //                     {this.state.showWarning ? '隐藏' : '显示'}
+        //                 </button>
+        //             </div>
+        //         );
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <Page />,
+        //     document.getElementById('example')
+        // )
+
+
+        // React列表&Keys
+        // function NumberList(props){
+        //     const numbers = props.numbers;
+        //     const listItems = numbers.map((number) => 
+        //         <li key={number.toString()}>
+        //             {number}
+        //         </li>
+        //     );
+        //     return(
+        //         <ul>{listItems}</ul>
+        //     );
+        // }
+        // const numbers = [1,2,3,4,5];
+        // ReactDOM.render(
+        //     <NumberList numbers={numbers} />,
+        //     document.getElementById('example')
+        // );
+
+
+        // key的正确使用方式
+        // function ListItem(props){
+        //     return <li>{props.value}</li>
+        // }
+        // function NumberList(props){
+        //     const numbers = props.numbers;
+        //     const listItems = numbers.map((number)=>
+        //         <ListItem key={number.toString()}
+        //             value={number} />
+        //     );
+        //     return(
+        //         <ul>
+        //             {listItems}
+        //         </ul>
+        //     );
+        // }
+        // const numbers = [1,2,3,4,5];
+        // ReactDOM.render(
+        //     <NumberList numbers={numbers} />,
+        //     document.getElementById('example')
+        // );
+
+
+        // 元素的key在他的兄弟之间应该唯一
+        // function Blog(props){
+        //     const sidebar = (
+        //         <ul>
+        //             {props.posts.map((post) => 
+        //                 <li key={post.id}>
+        //                     {post.title}
+        //                 </li>
+        //             )}
+        //         </ul>
+        //     );
+        //     const content = props.posts.map((post) =>
+        //         <div key={post.id}>
+        //             <h3>{post.title}</h3>
+        //             <p>{post.content}</p>
+        //         </div>
+        //     );
+        //     return(
+        //         <div>
+        //             {sidebar}
+        //             <br />
+        //             {content}
+        //         </div>
+        //     );
+        // }
+        // const posts = [
+        //     {id:1,title:'Hello World',content:'Welcome to learning React!'},
+        //     {id:2,title:'Installation',content:'You can install React from npm.'}
+        // ];
+        // ReactDOM.render(
+        //     <Blog posts={posts} />,
+        //     document.getElementById('example')
+        // )
+
+
+        // setState
+        class Counter extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {clickCount: 0};
+                this.handleClick = this.handleClick.bind(this);
+            }
+            handleClick(){
+                this.setState(function(state){
+                    return {clickCount: state.clickCount + 1};
+                });
+            }
+            render(){
+                return (<h2 onClick={this.handleClick}>点我！点击次数为：{this.state.clickCount}</h2>)
+            }
+        }
+        ReactDOM.render(
+            <Counter />,
+            document.getElementById('example')
+        );
+    </script>
+</html>

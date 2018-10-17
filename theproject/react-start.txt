@@ -1,0 +1,145 @@
+快速构建react开发环境
+
+	cnpm install -g create-react-app
+	create-react-app my-app
+	cd my-app
+	npm start
+
+React的生命周期函数
+初始化：
+1.getDefaultProps()
+设置默认的props，也可以用dufaultProps设置组件的默认属性
+2.getInitialState()
+在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state。此时可以访问this.props
+3.componentWillMount()
+组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state
+4.render()
+react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行。此时就不能更改state了
+5.componentDidMount()
+组件渲染之后调用，只调用一次。
+更新：
+6.componentWillReceiveProps(nextProps)
+组件初始化时不调用，组件接受新的props时调用
+7.shouldComponentUpdate(nextProps,nextState)
+react性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，
+如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要创造新的dom树和旧的dom树进行
+diff算法对比，节省大量性能，尤其是在dom结构复杂的时候
+8.componentWillUpdata(nextProps,nextState)
+组件初始化时不调用，只有在组件将要更新时才调用，此时可以修改state
+9.render()
+组件渲染
+10.componentDidUpdate()
+组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点
+卸载：
+11.componentWillUnmount()
+组件将要卸载时调用，一些事件监听和定时器需要在此时清除
+
+
+props与this.props
+
+        // class Clock extends React.Component{
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <h1>Hello,React!</h1>
+        //                 <h2>现在是{this.props.date.toLocaleTimeString()}.</h2>
+        //             </div>
+        //         );
+        //     }
+        // }
+        // function tick(){
+        //     ReactDOM.render(
+        //         <Clock date={new Date()} />,
+        //         document.getElementById('example')
+        //     )
+        // }
+        // setInterval(tick,1000);
+        // function Clock(props){
+        //     return(
+        //         <div>
+        //             <h1>Hello,React!</h1>
+        //             <h2>现在是{props.date.toLocaleTimeString()}.</h2>
+        //         </div>
+        //     );
+        // }
+        // function tick(){
+
+        //     ReactDOM.render(
+        //         <Clock date={new Date()} />,
+        //         document.getElementById('example')
+        //     );
+        // }
+        // setInterval(tick,1000);
+
+
+React JSX
+ReactDOM.render(
+      <h1>Hello,World!</h1>,
+       document.getElementById("Id名")
+)
+代码中嵌套多个 HTML 标签，需要使用一个标签元素包裹它
+ReactDOM.render(
+  <section>
+    <h1>这是正确的例子</h1>
+    <span>假设这里是标题下面的内容</span>
+  </section>,
+  document.getElementById("example")
+);
+
+为标签添加自定义属性需要使用data-前缀
+例：<p data-myattribute="myattr"></p>
+
+独立文件
+React JSX代码可以放在一个独立文件里，例如创建一个helloworld_react.js文件
+在HTML文件中引入改js文件
+<script type="text/babel" src="{文件路径}/helloworld_react.js"></script>
+
+JavaScript表达式
+在JSX中使用JavaScript表达式，表达式写在{}中
+例：<h1>{1+1}</h1>
+在JSX中不能使用if else语句，但可以使用三元运算表达式来代替
+例：<h1>{ i == 1 ？'true' : 'false' }</h1>
+
+样式
+React推荐使用内联样式。
+例：var myStyle = {
+       fontSize: 100,
+       color: '#FF0000'
+};
+ReactDOM.render(
+        <h1 style = {myStyle}>hello react</h1>,
+        document.getElementById('example')
+)
+通过 style 添加内联样式的时候
+ReactDOM.render(
+    <h1 style = {{fontSize:12}}>菜鸟教程</h1>,
+    document.getElementById('example')
+);
+
+注释
+标签内部注释需要写在花括号中
+例：<h1>{/*注释...*/}</h1>
+注释...
+
+数组
+JSX允许在模板中插入数组，数组会自动展开所有成员
+var arr = [
+      <h1>Hello</h1>,
+      <h2>React</h2>
+];
+ReactDOM.render(
+      <div>{arr}</div>,
+      document.getElementById('example')
+)
+
+HTML标签vs.React组件
+React可以渲染HTML标签(strings)或React组件(classes)。
+要渲染HTML标签，只需在JSX里使用小写字母的标签名。
+var myDivElement = <div className="foo"/>;
+ReactDOM.render(myDivElement,document.getElementById('example'))
+要渲染React组件，只需创建一个大写字母开头的本地变量。
+var MyComponent = React.createClass({/*...*/})
+var myElement = <MyComponent someProperty={true} />;
+ReactDOM.render(myElement,document.getElementById('example'))
+React的JSX使用大、小写的约定来区分本地组件的类和HTML标签。
+由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。
