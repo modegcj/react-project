@@ -26,7 +26,6 @@
         //     )
         // }
         // setInterval(tick,1000);
-        
 
         // class Clock extends React.Component{
         //     render(){
@@ -489,24 +488,199 @@
 
 
         // setState
-        class Counter extends React.Component{
+        // class Counter extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {clickCount: 0};
+        //         this.handleClick = this.handleClick.bind(this);
+        //     }
+        //     handleClick(){
+        //         this.setState(function(state){
+        //             return {clickCount: state.clickCount + 1};
+        //         });
+        //     }
+        //     render(){
+        //         return (<h2 onClick={this.handleClick}>点我！点击次数为：{this.state.clickCount}</h2>)
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <Counter />,
+        //     document.getElementById('example')
+        // );
+
+        // React表单与事件
+        // class HelloMessage extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {value: 'Hello Runoob!'};
+        //         this.handleChange = this.handleChange.bind(this);
+        //     }
+        //     handleChange(event){
+        //         this.setState({value: event.target.value});
+        //     }
+        //     render(){
+        //         var value = this.state.value;
+        //         return  <div>
+        //                     <input type="text" value={value} onChange={this.handleChange}/>
+        //                     <h4>{value}</h4>
+        //                 </div>
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <HelloMessage />,
+        //     document.getElementById('example')
+        // )
+
+        // class Content extends React.Component{
+        //     render(){
+        //         return  <div>
+        //                     <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp}/>
+        //                     <h4>{this.props.myDataProp}</h4>
+        //                 </div>
+        //     }
+        // }
+        // class HelloMessage extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {value: 'Hello Runoob!'};
+        //         this.handleChange = this.handleChange.bind(this);
+        //     }
+        //     handleChange(event){
+        //         this.setState({value: event.target.value});
+        //     }
+        //     render(){
+        //         var value = this.state.value;
+        //         return  <div>
+        //                     <Content myDataProp = {value}
+        //                         updateStateProp = {this.handleChange}></Content>
+        //                 </div>
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <HelloMessage />,
+        //     document.getElementById('example')
+        // )
+
+        // Select下拉表单
+        // class FlavorForm extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {value:'coconut'};
+        //         this.handleChange = this.handleChange.bind(this);
+        //         this.handleSubmit = this.handleSubmit.bind(this);
+        //     }
+        //     handleChange(event){
+        //         this.setState({value:event.target.value})
+        //     }
+        //     handleSubmit(event){
+        //         alert('Your favorite flavor is: ' + this.state.value);
+        //         event.preventDefault();
+        //     }
+        //     render(){
+        //         return(
+        //             <form onSubmit = {this.handleSubmit}>
+        //                 <label>
+        //                     选择您喜欢的网站
+        //                     <select value={this.state.value} onChange={this.handleChange}>
+        //                         <option value="gg">Google</option>
+        //                         <option value="rn">Runoob</option>
+        //                         <option value="tb">taobao</option>
+        //                         <option value="fb">Facebook</option>  
+        //                     </select>
+        //                 </label>
+        //                 <input type="submit" value="提交"/>
+        //             </form>
+        //         )
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <FlavorForm />,
+        //     document.getElementById("example")
+        // )
+
+        // 多个表单
+        // class Reservation extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {
+        //             isGoing: true,
+        //             numberOfGuests: 2
+        //         };
+        //         this.handleInputChange = this.handleInputChange.bind(this);
+        //     }
+        //     handleInputChange(event){
+        //         const target = event.target;
+        //         const value = target.type === 'checkbox' ? target.checked : target.value;
+        //         const name = target.name;
+        //         this.setState({
+        //             [name]: value
+        //         });
+        //     }
+        //     render(){
+        //         return(
+        //             <form>
+        //                 <label>
+        //                     是否离开：
+        //                     <input name="isGoing" type="checkbox" checked={this.state.isGoing} onChange = {this.handleInputChange}/>
+        //                 </label>
+        //             </form>
+        //         )
+        //     }
+        // }
+
+        // React事件
+        // class HelloMessage extends React.Component{
+        //     constructor(props){
+        //         super(props);
+        //         this.state = {value:'Hello World!'};
+        //         this.handleChange = this.handleChange.bind(this);
+        //         this.isChinese = false;
+        //     }
+        //     handleChange(event){
+        //         this.isChinese = !this.isChinese;
+        //         if(this.isChinese){
+        //             this.setState({value: '更改成功!'})
+        //         }else{
+        //             this.setState({value: 'Hello World!'})
+        //         }
+                
+        //     }
+        //     render(){
+        //         var value = this.state.value;
+        //         return  <div>
+        //                     <button onClick={this.handleChange}>点我</button>
+        //                     <h4>{value}</h4>
+        //                     <input type="text" value={value} readOnly/>
+        //                 </div>;
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <HelloMessage />,
+        //     document.getElementById('example')
+        // )
+
+        class HelloMessage extends React.Component{
             constructor(props){
                 super(props);
-                this.state = {clickCount: 0};
-                this.handleClick = this.handleClick.bind(this);
+                this.state = {value:'Hello World!'};
+                this.handleChange = this.handleChange.bind(this);
+                this.isChinese = false;
             }
-            handleClick(){
-                this.setState(function(state){
-                    return {clickCount: state.clickCount + 1};
-                });
+            handleChange(event){
+                this.isChinese = !this.isChinese;
+                if(this.isChinese){
+                    this.setState({value: '更改成功！'})
+                }else{
+                    this.setState({value:'Hello World!'})
+                }
             }
             render(){
-                return (<h2 onClick={this.handleClick}>点我！点击次数为：{this.state.clickCount}</h2>)
+                var value = this.state.value;
+                return  <div>
+                            
+                        </div>
             }
         }
-        ReactDOM.render(
-            <Counter />,
-            document.getElementById('example')
-        );
+
     </script>
 </html>
